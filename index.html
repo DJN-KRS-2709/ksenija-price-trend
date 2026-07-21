@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ksenija Residence — Price Trend 2023–2026 | Porto Montenegro</title>
+<style>
+  :root {
+    --navy: #07162C;
+    --deep: #0a2036;
+    --marine: #1b4965;
+    --teal: #2a9d8f;
+    --gold: #c9a24b;
+    --gold-soft: #e0c987;
+    --ink: #0f2233;
+    --paper: #f6f4ef;
+    --card: #ffffff;
+    --muted: #6b7c8c;
+    --line: #e3e8ee;
+    --up: #1f8a5b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Header */
+  header.hero {
+    background: linear-gradient(135deg, #07162C 0%, #0e2c47 55%, #1b4965 100%);
+    color: #fff;
+    padding: 48px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(1200px 300px at 80% -10%, rgba(201,162,75,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 980px; margin: 0 auto; padding: 0 20px; position: relative; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 2.5px; font-size: 12px;
+    color: var(--gold-soft); font-weight: 600; margin: 0 0 12px;
+  }
+  header.hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; font-weight: 700; }
+  header.hero p.sub { margin: 0; color: #c5d3e0; font-size: 16px; max-width: 640px; }
+  .flag {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; color: #dbe6f0;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+
+  /* Stat cards */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin: -32px 0 0; position: relative; z-index: 3;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 16px; box-shadow: 0 10px 30px rgba(7,22,44,0.08);
+  }
+  .stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
+  .stat .value { font-size: 26px; font-weight: 700; color: var(--navy); margin-top: 6px; }
+  .stat .value small { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .stat .value.up { color: var(--up); }
+
+  section { margin-top: 40px; }
+  h2 { font-size: 20px; color: var(--navy); margin: 0 0 4px; }
+  .section-sub { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px; box-shadow: 0 6px 20px rgba(7,22,44,0.05);
+  }
+
+  /* Chart */
+  .chart-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 4px 0 16px; font-size: 13px; color: var(--muted); }
+  .chart-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .swatch.line { background: var(--gold); }
+  .swatch.band { background: rgba(27,73,101,0.18); border: 1px solid rgba(27,73,101,0.35); }
+  svg { width: 100%; height: auto; display: block; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); font-weight: 700; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .pill.up { background: #e5f4ec; color: var(--up); }
+  .pill.now { background: #fbf3dd; color: #8a6d1f; }
+  .highlight-row td { background: #fbfaf5; font-weight: 600; }
+
+  .note {
+    font-size: 12.5px; color: var(--muted); background: #eef1f4; border-left: 3px solid var(--marine);
+    padding: 12px 14px; border-radius: 8px; margin-top: 16px; line-height: 1.55;
+  }
+  footer { margin-top: 40px; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.7; }
+  footer a { color: var(--marine); }
+
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    header.hero h1 { font-size: 26px; }
+    .hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Porto Montenegro &middot; Tivat</p>
+      <h1>Ksenija Residence — Apartment Price Trend</h1>
+      <p class="sub">Estimated asking price per m² for sea-view two-bedroom apartments, 2023–2026, with the current live listings that anchor today's market.</p>
+      <div class="flag"><span class="dot"></span> One of Porto Montenegro's most sought-after buildings</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Avg €/m² (2026)</div>
+        <div class="value">€8,900</div>
+      </div>
+      <div class="stat">
+        <div class="label">Growth 2023→2026</div>
+        <div class="value up">+31%</div>
+      </div>
+      <div class="stat">
+        <div class="label">Avg annual growth</div>
+        <div class="value">~9<small>%/yr</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">117 m² @ avg (2026)</div>
+        <div class="value">€1.04<small>M</small></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>Price per m² over time</h2>
+      <p class="section-sub">Gold line = average asking €/m² for sea-view units · shaded band = observed low–high range.</p>
+      <div class="card">
+        <div class="chart-legend">
+          <span><i class="swatch line"></i> Average asking €/m²</span>
+          <span><i class="swatch band"></i> Low–high listing range</span>
+        </div>
+        <div id="chart"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Year-by-year</h2>
+      <p class="section-sub">Estimated sea-view asking prices and what they imply for a 117 m² apartment.</p>
+      <div class="card" style="padding:6px 6px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Avg €/m²</th>
+              <th class="num">Range €/m²</th>
+              <th class="num">YoY</th>
+              <th class="num hide-sm">117 m² @ avg</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023</td>
+              <td class="num">€6,800</td>
+              <td class="num">€5,800 – €7,800</td>
+              <td class="num">—</td>
+              <td class="num hide-sm">€795,600</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td class="num">€7,600</td>
+              <td class="num">€6,600 – €8,900</td>
+              <td class="num"><span class="pill up">+11.8%</span></td>
+              <td class="num hide-sm">€889,200</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td class="num">€8,300</td>
+              <td class="num">€7,400 – €10,200</td>
+              <td class="num"><span class="pill up">+9.2%</span></td>
+              <td class="num hide-sm">€971,100</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>2026 <span class="pill now">now</span></td>
+              <td class="num">€8,900</td>
+              <td class="num">€8,050 – €11,740</td>
+              <td class="num"><span class="pill up">+7.2%</span></td>
+              <td class="num hide-sm">€1,041,300</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Live Ksenija listings (July 2026)</h2>
+      <p class="section-sub">Actual active asking prices that define today's range.</p>
+      <div class="card" style="padding:6px 6px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th class="num">Asking price</th>
+              <th class="num">€/m²</th>
+              <th class="hide-sm">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>107 m²</td><td class="num">€880,000</td><td class="num">€8,220</td><td class="hide-sm">Sea view, furnished — best value</td></tr>
+            <tr><td>77 m²</td><td class="num">€620,000</td><td class="num">€8,050</td><td class="hide-sm">Partial sea view, furnished</td></tr>
+            <tr><td>107 m²</td><td class="num">€950,000</td><td class="num">€8,880</td><td class="hide-sm">3rd floor, sea view, garage incl.</td></tr>
+            <tr><td>98 m²</td><td class="num">€899,900</td><td class="num">€9,180</td><td class="hide-sm">Sea-view terrace, garage</td></tr>
+            <tr><td>117 m²</td><td class="num">€1,130,000</td><td class="num">€9,658</td><td class="hide-sm">Sea view, garage incl.</td></tr>
+            <tr><td>115 m²</td><td class="num">€1,350,000</td><td class="num">€11,739</td><td class="hide-sm">Premium finish (outlier)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <strong>How to read this:</strong> Figures are <em>asking</em> prices from public listings and agency data, not recorded transaction prices — actual sales typically close somewhat below asking. The 2023–2025 averages are estimates reconstructed from Porto Montenegro market growth data (secondary-market sea-view stock), while 2026 reflects live Ksenija listings. Use as an indicative trend, not a formal valuation.
+      </div>
+    </section>
+
+    <footer>
+      Prepared 21 July 2026 · Sources: Montenegro Sotheby's Realty, Estitor, NadjiDom, GoMonte, Ana Pajković Porto Montenegro Guide 2026, MontenegroHousing, Investropa.<br/>
+      Indicative market summary for personal use — not investment advice or a certified appraisal.
+    </footer>
+  </div>
+
+<script>
+(function () {
+  // Data: year, avg, low, high
+  var data = [
+    { year: 2023, avg: 6800, low: 5800, high: 7800 },
+    { year: 2024, avg: 7600, low: 6600, high: 8900 },
+    { year: 2025, avg: 8300, low: 7400, high: 10200 },
+    { year: 2026, avg: 8900, low: 8050, high: 11740 }
+  ];
+
+  var W = 900, H = 420;
+  var m = { top: 24, right: 28, bottom: 44, left: 66 };
+  var iw = W - m.left - m.right;
+  var ih = H - m.top - m.bottom;
+
+  var yMin = 5000, yMax = 12500;
+  var n = data.length;
+
+  function xPos(i) { return m.left + (iw * i) / (n - 1); }
+  function yPos(v) { return m.top + ih * (1 - (v - yMin) / (yMax - yMin)); }
+
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", "Ksenija price per square meter trend 2023 to 2026");
+
+  function el(name, attrs) {
+    var e = document.createElementNS(svgNS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // Gridlines + y labels
+  for (var g = 5000; g <= 12000; g += 1000) {
+    var yy = yPos(g);
+    svg.appendChild(el("line", { x1: m.left, y1: yy, x2: W - m.right, y2: yy, stroke: "#eef1f4", "stroke-width": 1 }));
+    var yl = el("text", { x: m.left - 12, y: yy + 4, "text-anchor": "end", "font-size": 12, fill: "#6b7c8c" });
+    yl.textContent = "€" + (g / 1000) + "k";
+    svg.appendChild(yl);
+  }
+
+  // Range band (area between low and high)
+  var bandPts = [];
+  for (var i = 0; i < n; i++) bandPts.push(xPos(i) + "," + yPos(data[i].high));
+  for (var j = n - 1; j >= 0; j--) bandPts.push(xPos(j) + "," + yPos(data[j].low));
+  svg.appendChild(el("polygon", { points: bandPts.join(" "), fill: "rgba(27,73,101,0.16)", stroke: "rgba(27,73,101,0.32)", "stroke-width": 1 }));
+
+  // Average line
+  var linePts = [];
+  for (var k2 = 0; k2 < n; k2++) linePts.push(xPos(k2) + "," + yPos(data[k2].avg));
+  svg.appendChild(el("polyline", { points: linePts.join(" "), fill: "none", stroke: "#c9a24b", "stroke-width": 3.5, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+  // Points + value labels + x labels
+  for (var p = 0; p < n; p++) {
+    var cx = xPos(p), cy = yPos(data[p].avg);
+    svg.appendChild(el("circle", { cx: cx, cy: cy, r: 6, fill: "#fff", stroke: "#c9a24b", "stroke-width": 3 }));
+    var vl = el("text", { x: cx, y: cy - 16, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: "#07162C" });
+    vl.textContent = "€" + data[p].avg.toLocaleString();
+    svg.appendChild(vl);
+    var xl = el("text", { x: cx, y: H - 14, "text-anchor": "middle", "font-size": 13, "font-weight": 600, fill: "#0f2233" });
+    xl.textContent = data[p].year;
+    svg.appendChild(xl);
+  }
+
+  document.getElementById("chart").appendChild(svg);
+})();
+</script>
+</body>
+</html>
